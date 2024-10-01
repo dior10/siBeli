@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DetailMasukResource\Pages;
 use App\Filament\Resources\DetailMasukResource\RelationManagers;
 use App\Models\DetailMasuk;
+use App\Models\Masuk;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -33,10 +34,10 @@ class DetailMasukResource extends Resource
                 Forms\Components\TextInput::make('kode_barang_beli')
                 ->label('Kode Barang Beli')
                 ->required(),
-                Forms\Components\Select::all()->pluck('kode_masuk')
+                Forms\Components\Select::make('kode_masuk')
                 ->label('Kode Masuk')
-                ->required()
-                ->searchable,
+                ->options(Masuk::all()->pluck('kode_masuk','id'))
+                ->searchable(),
                 Forms\Components\TextInput::make('Subtotal')
                 ->label('Subtotal')
                 ->required(),

@@ -33,8 +33,7 @@ class SupplierResource extends Resource
                 ->maxLength('25'),
                 Forms\Components\TextInput::make('Alamat')
                 ->label('Alamat')
-                ->required()
-                ->maxLength('25'),
+                ->required(),
                 //
             ]);
     }

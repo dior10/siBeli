@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->char('kode_supplier',5);
             $table->char('nama_supplier',25);
-            $table->char('Alamat',25);
+            $table->text('Alamat');
             $table->timestamps();
         });
     }

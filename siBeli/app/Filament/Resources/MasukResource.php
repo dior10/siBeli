@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MasukResource\Pages;
 use App\Filament\Resources\MasukResource\RelationManagers;
 use App\Models\Masuk;
+use App\Models\Supplier;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -33,10 +34,10 @@ class MasukResource extends Resource
                 Forms\Components\TextInput::make('kode_admin')
                 ->label('Kode Admin')
                 ->required(),
-                Forms\Components\Select::all()->pluck('kode_supplier')
+                Forms\Components\Select::make('kode_supplier')
                 ->label('Kode Supplier')
-                ->required()
-                ->searchable,
+                ->options(Supplier::all()->pluck('kode_supplier','id'))
+                ->searchable(),
                 Forms\Components\TextInput::make('total_masuk')
                 ->label('Total Masuk')
                 ->required(),
